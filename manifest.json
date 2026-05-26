@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Google Sin IA",
+  "version": "1.2",
+  "description": "Fuerza las búsquedas de Google a mostrar solo resultados web clásicos, sin IA.",
+  "permissions": [
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
