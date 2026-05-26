@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.png" alt="Google No AI Banner" width="100%">
+</p>
+
 # Google No AI
 
 A Chrome extension that forces Google searches to display **classic web results only**, bypassing AI-generated summaries (AI Overviews, AI Mode, etc.).
