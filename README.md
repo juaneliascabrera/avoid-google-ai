@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="banner.png" alt="Google No AI Banner" width="100%">
-</p>
+![Google No AI](banner.png)
 
 # Google No AI
 
