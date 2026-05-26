@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png" alt="Google No AI Banner" width="100%">
+  <img src="banner.png" alt="Google No AI Banner" width="100%">
 </p>
 
 # Google No AI
