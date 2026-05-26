@@ -1,67 +1,71 @@
-# Google Sin IA
+# Google No AI
 
-Extensión de Chrome que fuerza las búsquedas en Google a mostrar **únicamente resultados web clásicos**, evitando los resúmenes generados por inteligencia artificial (AI Overviews, AI Mode, etc.).
+A Chrome extension that forces Google searches to display **classic web results only**, bypassing AI-generated summaries (AI Overviews, AI Mode, etc.).
 
-## ¿Qué hace?
+## What it does
 
-Google rediseñó su página de resultados para mostrar primero respuestas generadas por IA. Esta extensión intercepta automáticamente cualquier búsqueda en Google y añade el parámetro `udm=14`, que lleva directamente a la pestaña de resultados web tradicionales.
+Google redesigned its results page to show AI-generated answers first. This extension automatically intercepts any Google search and appends the `udm=14` parameter, which redirects directly to the traditional "Web" results tab.
 
-- ✅ Elimina los "AI Overviews" de los resultados.
-- ✅ Funciona en búsquedas desde la barra de direcciones, la página de Google y enlaces directos.
-- ✅ No requiere configuración; funciona en segundo plano desde el primer momento.
+- Removes AI Overviews from search results.
+- Works on searches from the address bar, the Google homepage, and direct links.
+- Zero configuration required; runs silently in the background.
 
-## Instalación
+## Installation
 
-1. Clona o descarga este repositorio.
-2. Abre Chrome y navega a `chrome://extensions/`.
-3. Activa el **Modo de desarrollador** (interruptor superior derecho).
-4. Haz clic en **Cargar descomprimida**.
-5. Selecciona la carpeta `google-no-ai-extension`.
+1. Clone or download this repository.
+2. Open Chrome and navigate to `chrome://extensions/`.
+3. Enable **Developer mode** (toggle at the top right).
+4. Click **Load unpacked**.
+5. Select the `google-no-ai-extension` folder.
 
-¡Listo! A partir de ahora, todas tus búsquedas en Google se redirigirán automáticamente a resultados sin IA.
+You're all set! From now on, every Google search will be automatically redirected to AI-free web results.
 
-## Cómo funciona
+## How it works
 
-La extensión utiliza el evento `chrome.tabs.onUpdated` para detectar cuando una pestaña navega a una URL de búsqueda de Google (`/search`). Si detecta que la URL no contiene el parámetro `udm=14`, lo añade automáticamente y redirige la pestaña.
+The extension uses the `chrome.tabs.onUpdated` event to detect when a tab navigates to a Google search URL (`/search`). If the URL does not already contain the `udm=14` parameter, it appends it and redirects the tab.
 
-El parámetro `udm=14` es un identificador interno de Google que corresponde a la pestaña **"Web"** (resultados clásicos), evitando la vista de IA.
+The `udm=14` parameter is an internal Google identifier that corresponds to the **"Web"** tab (classic results), skipping the AI view.
 
-### Ejemplo
+### Example
 
-- **URL original:** `https://www.google.com/search?q=ejemplo`
-- **URL con la extensión:** `https://www.google.com/search?q=ejemplo&udm=14`
+- **Original URL:** `https://www.google.com/search?q=example`
+- **Extension URL:** `https://www.google.com/search?q=example&udm=14`
 
-## Estructura del proyecto
+## Project structure
 
 ```
 google-no-ai-extension/
-├── manifest.json     # Configuración de la extensión (Manifest V3)
-├── background.js     # Lógica de redirección
-└── README.md         # Este archivo
+├── manifest.json     # Extension configuration (Manifest V3)
+├── background.js     # Redirection logic
+├── icon16.png        # Toolbar icon (16x16)
+├── icon32.png        # Toolbar icon (32x32)
+├── icon48.png        # Extensions page icon (48x48)
+├── icon128.png       # Chrome Web Store icon (128x128)
+└── README.md         # This file
 ```
 
-## Permisos
+## Permissions
 
-La extensión solicita únicamente los permisos mínimos necesarios:
+The extension requests only the minimum permissions needed:
 
-- **`tabs`**: Para escuchar los cambios de URL en las pestañas y redirigir cuando corresponde.
-- **`host_permissions` para `*://*.google.com/*`**: Para actuar únicamente en páginas de Google.
+- **`tabs`**: To listen for URL changes in tabs and redirect when appropriate.
+- **`host_permissions` for `*://*.google.com/*`**: To act only on Google pages.
 
-No se accede a tu historial, no se envían datos a servidores externos y no se ejecuta código en las páginas que visitas.
+No browsing history is accessed, no data is sent to external servers, and no code is injected into the pages you visit.
 
-## Compatibilidad
+## Compatibility
 
-- **Navegadores:** Chrome, Edge, Brave, Opera y cualquier navegador basado en Chromium que soporte Manifest V3.
-- **Idiomas:** Funciona con todas las versiones regionales de Google (`google.com`, `google.com.ar`, `google.es`, etc.).
+- **Browsers:** Chrome, Edge, Brave, Opera, and any Chromium-based browser supporting Manifest V3.
+- **Languages:** Works with all regional Google domains (`google.com`, `google.co.uk`, `google.es`, etc.).
 
-## Contribuir
+## Contributing
 
-¡Las contribuciones son bienvenidas! Si encuentras un bug, si Google cambia el funcionamiento de `udm=14`, o si tienes una idea para mejorar la extensión, abre un *issue* o envía un *pull request*.
+Contributions are welcome! If you find a bug, if Google changes how `udm=14` works, or if you have an idea to improve the extension, open an issue or submit a pull request.
 
-## Licencia
+## License
 
 MIT
 
 ---
 
-*Hecho para mantener la búsqueda web simple y libre de ruido de IA.*
+*Built to keep web search simple and free of AI noise.*
